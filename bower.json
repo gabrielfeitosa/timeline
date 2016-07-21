@@ -1,0 +1,21 @@
+{
+  "name": "timeline-example",
+  "description": "Aplicação exemplo de uma timeline em tempo real",
+  "authors": [
+    "Gabriel Feitosa <gabfeitosa@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular-timeline": "^1.7.0",
+    "angular": "^1.5.7",
+    "jquery": "^1.9.1",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "angular-ui-router": "^0.3.1",
+    "angular-scroll-animate": "^0.9.9",
+    "moment": "^2.14.1"
+  },
+  "resolutions": {
+    "angular": "1.5.7"
+  }
+}

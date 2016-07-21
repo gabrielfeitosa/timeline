@@ -1,0 +1,17 @@
+ul.timeline li .timeline-panel {
+    width: 100%;
+}
+
+.notafiscal{
+    color: skyblue
+}
+
+.notafiscal > .numero {
+    font-weight: bold;
+}
+
+.tag.badge {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}

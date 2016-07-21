@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Angular Timeline</h1>
+    <button ng-click="addEvent()">Add New Event</button>
+    <br/>
+    <br/>
+    <timeline>
+        <timeline-event ng-repeat="event in events">
+
+            <timeline-badge>
+                <i class="glyphicon {{event.icon}}"></i>
+            </timeline-badge>
+
+            <timeline-panel>
+                <timeline-heading>
+                    <b>{{event.titulo.descricao}}</b> <span class="tag badge">{{event.titulo.tag | uppercase}}</span>
+                    <small class="text-muted">
+                         <i class="glyphicon glyphicon-time"></i>{{formatDate(event.titulo.data)}}
+                    </small>
+                </timeline-heading>
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-md-8">
+                        <p>{{event.venda.nome}} vendeu: <span>{{event.venda.valor | currency}}</span></p>
+                        <p>Lucro bruto: <span>{{event.lucro | currency}}</span></p>
+                    </div>
+                    <div class="col-md-4 notafiscal">
+                        <div class="col-md-12 texto">
+                            Nota Fiscal
+                        </div>
+                        <div class="col-md-12 numero">
+                            {{event.nrNotaFiscal}}
+                        </div>
+                    </div>
+                </div>
+            </timeline-panel>
+        </timeline-event>
+    </timeline>
+</div>
