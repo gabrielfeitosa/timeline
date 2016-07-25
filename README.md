@@ -8,13 +8,19 @@ Faça o clone desse repositório:
 $ git clone https://github.com/gabrielfeitosa/timeline
 ```
 
-Para instalar as dependências:
+Para instalar as dependências do npm:
 
 ```sh
 $ npm install
 ```
 
-Para rodar a aplicação:
+Para instalar do bower:
+
+```sh
+$ bower install
+```
+
+Para rodar a aplicação (é necessário ter executado os passos anteriores):
 
 ```sh
 $ node index.js
