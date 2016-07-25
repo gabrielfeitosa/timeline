@@ -18,6 +18,7 @@ io.on('connection', function (socket) {
 
     socket.on('venda', function (o) {
         o.id = id++;
+        o.data = new Date();
         vendas.push(o);
         io.emit('venda', o);
     });
@@ -26,7 +27,6 @@ io.on('connection', function (socket) {
         vendas = vendas.filter(function (v) {
             return v.id != id;
         });
-        console.log(vendas);
         io.emit('excluir', id);
     });
 

@@ -5,23 +5,9 @@
     angular.module('timeline')
         .controller('TimelineCtrl', TimelineCtrl);
 
-    function TimelineCtrl($scope, TimelineFactory, moment) {
-        $scope.events = [
-            // {
-            //     class: 'info',
-            //     badgeIconClass: 'glyphicon-check',
-            //     title: 'First heading',
-            //     when: '11 hours ago via Twitter',
-            //     content: 'Some awesome content.'
-            // },
-            // {
-            //     badgeClass: 'warning',
-            //     badgeIconClass: 'glyphicon-credit-card',
-            //     title: 'Second heading',
-            //     when: '12 hours ago via Twitter',
-            //     content: 'More awesome content.'
-            // }
-        ];
+    function TimelineCtrl(TimelineFactory, $scope, moment) {
+        var vm = this;
+        vm.itens = [];
         
         init();
         
@@ -31,55 +17,37 @@
 
         function callbackVendas(resp) {
             if (angular.isArray(resp)){
-                $scope.events = resp;
+                vm.itens = resp;
             }else{
-                $scope.events.unshift(resp);
+                vm.itens.unshift(resp);
             }
             $scope.$apply();
         }
         
         function callbackExcluir(id){
-            $scope.events = $scope.events.filter(function(e){
+            vm.itens = vm.itens.filter(function(e){
                 return e.id !== id;
             });
             $scope.$apply();
         }
 
-        $scope.excluir = function(id){
+        vm.excluir = function(id){
             TimelineFactory.excluir(id);
         }
 
-        $scope.addEvent = function () {
-            TimelineFactory.cadastrar({
-                titulo:{
-                    descricao: 'Descrição '+ new Date(),
-                    tag: 'Gabriel',
-                    data: new Date(),    
-                },
-                venda: {
-                    nome: 'José',
-                    valor: 1000
-                },
-                nrNotaFiscal: 555555,
-                icon: 'glyphicon-credit-card',
-                lucro: 500
-            });
+        // // optional: not mandatory (uses angular-scroll-animate)
+        // vm.animateElementIn = function ($el) {
+        //     $el.removeClass('timeline-hidden');
+        //     $el.addClass('bounce-in');
+        // };
 
-        };
-
-        // optional: not mandatory (uses angular-scroll-animate)
-        $scope.animateElementIn = function ($el) {
-            $el.removeClass('timeline-hidden');
-            $el.addClass('bounce-in');
-        };
-
-        // optional: not mandatory (uses angular-scroll-animate)
-        $scope.animateElementOut = function ($el) {
-            $el.addClass('timeline-hidden');
-            $el.removeClass('bounce-in');
-        };
+        // // optional: not mandatory (uses angular-scroll-animate)
+        // vm.animateElementOut = function ($el) {
+        //     $el.addClass('timeline-hidden');
+        //     $el.removeClass('bounce-in');
+        // };
         
-        $scope.formatDate = function(date){
+        vm.formatDate = function(date){
             return moment(date).fromNow();
         }
     };

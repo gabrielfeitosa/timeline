@@ -1,37 +1,59 @@
 <div class="container">
-    <h1>Angular Timeline</h1>
-    <button ng-click="addEvent()">Add New Event</button>
-    <br/>
-    <br/>
-    <timeline>
-        <timeline-event ng-repeat="event in events">
+    <div class="row text-center">
+        <h1>Timeline de Vendas</h1>
+        <a ui-sref="venda" style="font-weight: bold">Clique aqui para simular uma venda</a>
+    </div>
+    <br>
+    <div class="row">
+        <timeline>
+            <timeline-event ng-repeat="item in timeline.itens">
 
-            <timeline-badge>
-                <i class="glyphicon {{event.icon}}"></i>
-            </timeline-badge>
+                <timeline-badge>
+                    <i class="fa fa-{{item.formaPgto}}"></i>
+                </timeline-badge>
 
-            <timeline-panel>
-                <timeline-heading>
-                    <b>{{event.titulo.descricao}}</b> <span class="tag badge">{{event.titulo.tag | uppercase}}</span>
-                    <small class="text-muted">
-                         <i class="glyphicon glyphicon-time"></i>{{formatDate(event.titulo.data)}}
+                <timeline-panel>
+                    <timeline-heading>
+                        <b>{{item.descricao}}</b> <span class="tag badge">{{item.usuario | uppercase}}</span>
+                        <small class="text-muted">
+                         <i class="glyphicon glyphicon-time"></i>{{timeline.formatDate(item.data)}}
                     </small>
-                </timeline-heading>
-                <div class="row" style="margin-top: 10px">
-                    <div class="col-md-8">
-                        <p>{{event.venda.nome}} vendeu: <span>{{event.venda.valor | currency}}</span></p>
-                        <p>Lucro bruto: <span>{{event.lucro | currency}}</span></p>
-                    </div>
-                    <div class="col-md-4 notafiscal">
-                        <div class="col-md-12 texto">
-                            Nota Fiscal
+                    </timeline-heading>
+                    <div class="row" style="margin-top: 10px">
+                        <div class="col-md-1">
+                            <button class="btn btn-danger btn-xs " ng-click="timeline.excluir(item.id)">x</button>
                         </div>
-                        <div class="col-md-12 numero">
-                            {{event.nrNotaFiscal}}
+                        <div class="col-md-11">
+                            <div class="col-md-8">
+                                <p>
+                                    <div class="row ">
+                                        <div class="col-md-6 ">{{item.vendedor}} vendeu: </div>
+                                        <div class="col-md-6 ">
+                                            <span>{{item.valor | currency}}</span>
+                                        </div>
+                                    </div>
+                                </p>
+                                <p>
+                                    <div class="row ">
+                                        <div class="col-md-6 ">Lucro bruto: </div>
+                                        <div class="col-md-6 "><span>{{item.lucro | currency}}</span></div>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="col-md-4 notafiscal ">
+                                <div class="row ">
+                                    <div class="col-md-12 ">
+                                        Nota Fiscal
+                                    </div>
+                                    <div class="col-md-12 ">
+                                        <span class="numero ">{{item.nrNotaFiscal}}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </timeline-panel>
-        </timeline-event>
-    </timeline>
+                </timeline-panel>
+            </timeline-event>
+        </timeline>
+    </div>
 </div>

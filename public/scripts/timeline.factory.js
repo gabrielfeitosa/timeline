@@ -17,8 +17,8 @@
                 socket.on('excluir', callBackExcluir);
             }
 
-            function cadastrar(texto) {
-                socket.emit('venda', texto);
+            function cadastrar(item) {
+                socket.emit('venda', item);
             }
 
             function excluir(id) {

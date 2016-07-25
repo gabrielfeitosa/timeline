@@ -6,7 +6,7 @@ ul.timeline li .timeline-panel {
     color: skyblue
 }
 
-.notafiscal > .numero {
+.notafiscal .numero {
     font-weight: bold;
 }
 
@@ -14,4 +14,9 @@ ul.timeline li .timeline-panel {
     background-color: black;
     color: white;
     font-weight: bold;
+}
+
+.obrigatorio::after{
+   content: '*';
+   color: red;
 }

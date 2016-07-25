@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row text-center">
+        <h1>Simulação dos dados da Venda</h1>
+    </div>
+    <div class="row">
+        <form name="formulario" novalidate ng-submit="venda.cadastrar()">
+            <div class="form-group" ng-class="{'has-error': formulario.descricao.$error.required && formulario.descricao.$touched}">
+                <label for="descricao" class="obrigatorio control-label">Descrição do Item</label>
+                <input name="descricao" ng-model="venda.item.descricao" type="text" class="form-control" placeholder="Descrição do item vendido"
+                required>
+                <span ng-show="formulario.descricao.$error.required && formulario.descricao.$touched" class="help-block"> 
+                     Campo obrigatório
+                </span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': formulario.usuario.$error.required && formulario.usuario.$touched}">
+                <label for="usuario" class="obrigatorio control-label">Usuário Logado</label>
+                <input type="text" name="usuario" ng-model="venda.item.usuario" class="form-control" placeholder="Informe o usuário logado no sistema"
+                required>
+                <span ng-show="formulario.usuario.$error.required && formulario.usuario.$touched" class="help-block"> 
+                     Campo obrigatório
+                </span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': formulario.vendedor.$error.required && formulario.vendedor.$touched}">
+                <label for="vendedor" class="obrigatorio control-label">Vendedor</label>
+                <input type="text" name="vendedor" ng-model="venda.item.vendedor" class="form-control" placeholder="Nome do vendedor" required>
+                <span ng-show="formulario.vendedor.$error.required && formulario.vendedor.$touched" class="help-block"> 
+                     Campo obrigatório
+                </span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': formulario.valor.$error.required && formulario.valor.$touched}">
+                <label for="valor" class="obrigatorio control-label">Valor</label>
+                <input type="number" name="valor" ng-model="venda.item.valor" class="form-control" placeholder="Informe o valor da compra"
+                required step="0.1">
+                <span ng-show="formulario.valor.$error.required && formulario.valor.$touched" class="help-block"> 
+                     Campo obrigatório
+                </span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': formulario.nrNotaFiscal.$error.required && formulario.nrNotaFiscal.$touched}">
+                <label for="nrNotaFiscal" class="obrigatorio control-label">Número da Nota Fiscal</label>
+                <input type="text" name="nrNotaFiscal" ng-model="venda.item.nrNotaFiscal" class="form-control" placeholder="Qual o número da nota fiscal?"
+                required >
+                <span ng-show="formulario.nrNotaFiscal.$error.required && formulario.nrNotaFiscal.$touched" class="help-block"> 
+                     Campo obrigatório
+                </span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': formulario.formaPgto.$error.required && formulario.formaPgto.$touched}">
+                <label for="formaPgto" class="obrigatorio control-label">Forma de pagamento</label>
+                <select name="formaPgto" ng-model="venda.item.formaPgto" class="form-control" required>
+                    <option value="">Selecione uma forma de Pagamento</option>
+                    <option value="credit-card">Cartão</option>
+                    <option value="money">Dinheiro</option>
+                    <option value="bank">Cartão e Dinheiro</option>
+                </select>
+                <span ng-show="formulario.formaPgto.$error.required && formulario.formaPgto.$touched" class="help-block"> 
+                     Campo obrigatório
+                </span>
+            </div>
+            <div class="form-group" ng-class="{'has-error': formulario.lucro.$error.required && formulario.lucro.$touched}">
+                <label for="lucro" class="obrigatorio control-label">Lucro Bruto</label>
+                <input type="number" name="lucro" ng-model="venda.item.lucro" class="form-control" required>
+                <span ng-show="formulario.lucro.$error.required && formulario.lucro.$touched" class="help-block"> 
+                     Campo obrigatório
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

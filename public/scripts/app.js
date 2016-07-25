@@ -1,3 +1,4 @@
+/* global moment */
 (function () {
     'use strict';
 
@@ -11,11 +12,14 @@
     app.config(function ($stateProvider) {
         $stateProvider.state('timeline', {
             url: '',
-            controller: 'TimelineCtrl',
+            controller: 'TimelineCtrl as timeline',
             templateUrl: 'timeline.html'
+        }).state('venda', {
+            url: '/venda',
+            controller: 'VendaCtrl as venda',
+            templateUrl: 'venda.html'
         });
     });
-    
-    
+        
     app.constant('moment', moment);
 })();

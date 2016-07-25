@@ -13,7 +13,8 @@
     "font-awesome": "^4.6.3",
     "angular-ui-router": "^0.3.1",
     "angular-scroll-animate": "^0.9.9",
-    "moment": "^2.14.1"
+    "moment": "^2.14.1",
+    "angular-i18n": "^1.5.8"
   },
   "resolutions": {
     "angular": "1.5.7"
